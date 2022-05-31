@@ -9,4 +9,11 @@
  Text Domain:  wp-glossary
 */
 
-  p {color: #0f0;}
+
+table#GlossaryTable tbody tr {
+  background-color: #bbb;
+}
+
+table#GlossaryTable tbody tr.odd {
+  background-color: #ddd;
+}
