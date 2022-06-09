@@ -8,39 +8,24 @@ get_header();
     <div class="entry-content">
 
         <header class="page-header">
-			<!-- pre>archive-glossary.php</pre -->
+			<!-- pre>taxonomy-gloss-cat.php</pre -->
 			<h1>Glossary</h1>
         </header>
 
-
 		<?php
-			// display a list with all categories = custom taxonomy 'gloss-cat'
-
-			$terms = get_terms([
-				'taxonomy' => 'gloss-cat',
-				'hide_empty' => false,
-			]);
-
-			echo '<ul>';
-			foreach ($terms as $term){
-				echo '<li><a href="' . get_term_link($term) .  '">' .  $term->name  . '</a></li>';
-			}
-			echo '</ul>';
+			$link = get_site_url();
+			echo '<a href="' . $link . '/glossary">To all glossary items</a>';
 		?>
 
-
 		<?php
-
-			// table with all lemmas
 
 			if ( have_posts() ) :
 
-				echo '<table class="glossary" id="GlossaryTable">
-				<thead><tr><th>Title</th><th>Category</th><th>Definition</th><th>Author</th></tr></thead>
-				<tbody>';
+				echo '<table class="glossary" id="GlossaryTable"><thead><tr><th>Title</th><th>Category</th><th>Definition</th><th>Author</th></tr></thead><tbody>';
 
 				while ( have_posts() ) :
 					the_post();
+
 						$link = get_permalink();
 						$title = get_the_title();
 						$content = get_the_content();
@@ -54,7 +39,7 @@ get_header();
 						foreach ($terms as $term) {
 							echo '<a href="' . get_term_link($term) .  '">' .  $term->name  . '</a>' ;
 						}
-								
+
 						echo '</td>' . 
 								'<td>'. $content  . '</td>' . 
 								'<td>'. $author . '</td>' . 
@@ -81,6 +66,10 @@ get_header();
 				})
 			} );
 	</script>
+
+
+
+
 
     </div><!-- .entry-content -->
 

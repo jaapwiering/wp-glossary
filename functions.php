@@ -51,7 +51,7 @@ function fngl_cpt_glossary()
 		'public'              => true,
 		'capability_type'     => 'page',
 		// 'show_in_rest'        => true,
-		'taxonomies'          => array('category', 'post_tag'),
+		'taxonomies'          => array('gloss-cat'),
 		// 'hierarchical'        => true,
     'has_archive'         => true,
 	);
@@ -59,3 +59,51 @@ function fngl_cpt_glossary()
 	register_post_type('glossary', $args);
 }
 add_action('init', 'fngl_cpt_glossary');
+
+
+/* Register a 'gloss-cat' taxonomy for post type 'glossary'. */
+
+function fngl_cpt_glossary_cat() {
+   register_taxonomy( 'gloss-cat', 'glossary', array(
+       'label'        => __( 'Glossary Category', 'wp-glossary' ),
+       'rewrite'      => array( 'slug' => 'gloss-cat' ),
+       'hierarchical' => true,
+   ) );
+}
+add_action( 'init', 'fngl_cpt_glossary_cat', 0 );
+
+
+/*
+ * Add custom taxonomy 'gloss-cat' column to CPT 'glossary' edit screen 
+ * source: https://wordpress.stackexchange.com/questions/253640/adding-custom-columns-to-custom-post-types
+ */
+
+// Add the custom columns to the glossary post type:
+add_filter( 'manage_glossary_posts_columns', 'set_custom_edit_glossary_columns' );
+function set_custom_edit_glossary_columns($columns) {
+    unset( $columns['date'] );
+    $columns['gloss-cat'] = __( 'Category', 'wp-glossary' );
+    // $columns['publisher'] = __( 'Publisher', 'your_text_domain' );
+
+    return $columns;
+}
+
+// Add the data to the custom columns for the glossary post type:
+add_action( 'manage_glossary_posts_custom_column' , 'custom_glossary_column', 10, 2 );
+function custom_glossary_column( $column, $post_id ) {
+    switch ( $column ) {
+
+        case 'gloss-cat' :
+            $terms = get_the_term_list( $post_id , 'gloss-cat' , '' , ',' , '' );
+            if ( is_string( $terms ) )
+                echo $terms;
+            else
+                _e( '- none -', 'wp-glossary' );
+            break;
+
+        // case 'publisher' :
+        //     echo get_post_meta( $post_id , 'publisher' , true ); 
+        //     break;
+
+    }
+}

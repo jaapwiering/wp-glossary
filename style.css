@@ -1,4 +1,4 @@
-/*
+/*!
  Theme Name:   WordPress Glossary
  Theme URI:    https://www.wplounge.nl/
  Description:  WordPress Glossary Child Theme
@@ -7,13 +7,4 @@
  Template:     fngl-s-core
  Version:      0.1
  Text Domain:  wp-glossary
-*/
-
-
-table#GlossaryTable tbody tr {
-  background-color: #bbb;
-}
-
-table#GlossaryTable tbody tr.odd {
-  background-color: #ddd;
-}
+*/table#GlossaryTable tbody tr{background-color:#bbb}table#GlossaryTable tbody tr.odd{background-color:#ddd}
