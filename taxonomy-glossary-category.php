@@ -8,7 +8,7 @@ get_header();
     <div class="entry-content">
 
         <header class="page-header">
-			<!-- pre>taxonomy-gloss-cat.php</pre -->
+			<!-- pre>taxonomy-glossary-category.php</pre -->
 			<h1>Glossary</h1>
         </header>
 
@@ -30,7 +30,7 @@ get_header();
 						$title = get_the_title();
 						$content = get_the_content();
 						$author = get_the_author();
-						$terms = get_the_terms($post->ID, 'gloss-cat');
+						$terms = get_the_terms($post->ID, 'glossary-category');
 
 						echo '<tr>' . 
 								'<td><a href="' . $link .  '">' .  $title  . '</a></td>' .
@@ -42,7 +42,7 @@ get_header();
 
 						echo '</td>' . 
 								'<td>'. $content  . '</td>' . 
-								'<td>'. $author . '</td>' . 
+								// '<td>'. $author . '</td>' . 
 							'</tr>';
 				endwhile;
 

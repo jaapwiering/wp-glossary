@@ -1,6 +1,6 @@
 <?php
 
-/* initialise child theme */
+/* Initialise child theme */
 
 add_action( 'wp_enqueue_scripts', 'enqueue_parent_styles' );
 
@@ -34,11 +34,11 @@ function fngl_cpt_glossary()
 	$support = array(
 		'title',
 		'editor',
-    'author',
+    	'author',
 		// 'thumbnail',
 		// 'excerpt',
 		// 'custom-fields',
-    'comments',
+    	'comments',
 		'revisions',
 		// 'page-attributes',
 	);
@@ -51,8 +51,8 @@ function fngl_cpt_glossary()
 		'public'              => true,
 		'capability_type'     => 'page',
 		// 'show_in_rest'        => true,
-		'taxonomies'          => array('gloss-cat'),
-		// 'hierarchical'        => true,
+		'taxonomies'          => array('glossary-category'),
+		'hierarchical'        => true,
     'has_archive'         => true,
 	);
 
@@ -61,40 +61,38 @@ function fngl_cpt_glossary()
 add_action('init', 'fngl_cpt_glossary');
 
 
-/* Register a 'gloss-cat' taxonomy for post type 'glossary'. */
+/* Register a 'glossary-category' taxonomy for post type 'glossary'. */
 
 function fngl_cpt_glossary_cat() {
-   register_taxonomy( 'gloss-cat', 'glossary', array(
+   register_taxonomy( 'glossary-category', 'glossary', array(
        'label'        => __( 'Glossary Category', 'wp-glossary' ),
-       'rewrite'      => array( 'slug' => 'gloss-cat' ),
+       'rewrite'      => array( 'slug' => 'glossary-category' ),
        'hierarchical' => true,
    ) );
 }
 add_action( 'init', 'fngl_cpt_glossary_cat', 0 );
 
 
-/*
- * Add custom taxonomy 'gloss-cat' column to CPT 'glossary' edit screen 
- * source: https://wordpress.stackexchange.com/questions/253640/adding-custom-columns-to-custom-post-types
- */
+/* Add custom taxonomy 'glossary-category' column to CPT 'glossary' edit screen */
+/* source: https://wordpress.stackexchange.com/questions/253640/adding-custom-columns-to-custom-post-types */
 
-// Add the custom columns to the glossary post type:
+// Add the custom columns to the post type 'glossary'
 add_filter( 'manage_glossary_posts_columns', 'set_custom_edit_glossary_columns' );
 function set_custom_edit_glossary_columns($columns) {
     unset( $columns['date'] );
-    $columns['gloss-cat'] = __( 'Category', 'wp-glossary' );
+    $columns['glossary-category'] = __( 'Category', 'wp-glossary' );
     // $columns['publisher'] = __( 'Publisher', 'your_text_domain' );
 
     return $columns;
 }
 
-// Add the data to the custom columns for the glossary post type:
+// Add the data to the custom columns for the post type 'glossary'
 add_action( 'manage_glossary_posts_custom_column' , 'custom_glossary_column', 10, 2 );
 function custom_glossary_column( $column, $post_id ) {
     switch ( $column ) {
 
-        case 'gloss-cat' :
-            $terms = get_the_term_list( $post_id , 'gloss-cat' , '' , ',' , '' );
+        case 'glossary-category' :
+            $terms = get_the_term_list( $post_id , 'glossary-category' , '' , ',' , '' );
             if ( is_string( $terms ) )
                 echo $terms;
             else

@@ -14,10 +14,10 @@ get_header();
 
 
 		<?php
-			// display a list with all categories = custom taxonomy 'gloss-cat'
+			// display a list with all categories = custom taxonomy 'glossary-category'
 
 			$terms = get_terms([
-				'taxonomy' => 'gloss-cat',
+				'taxonomy' => 'glossary-category',
 				'hide_empty' => false,
 			]);
 
@@ -45,7 +45,7 @@ get_header();
 						$title = get_the_title();
 						$content = get_the_content();
 						$author = get_the_author();
-						$terms = get_the_terms($post->ID, 'gloss-cat');
+						$terms = get_the_terms($post->ID, 'glossary-category');
 
 						echo '<tr>' . 
 								'<td><a href="' . $link .  '">' .  $title  . '</a></td>' .
@@ -57,7 +57,7 @@ get_header();
 								
 						echo '</td>' . 
 								'<td>'. $content  . '</td>' . 
-								'<td>'. $author . '</td>' . 
+								// '<td>'. $author . '</td>' . 
 							'</tr>';
 				endwhile;
 
