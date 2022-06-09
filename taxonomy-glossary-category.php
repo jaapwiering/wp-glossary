@@ -21,7 +21,7 @@ get_header();
 
 			if ( have_posts() ) :
 
-				echo '<table class="glossary" id="GlossaryTable"><thead><tr><th>Title</th><th>Category</th><th>Definition</th><th>Author</th></tr></thead><tbody>';
+				echo '<table class="glossary" id="GlossaryTable"><thead><tr><th>Title</th><th>Category</th><th>Definition</th></tr></thead><tbody>';
 
 				while ( have_posts() ) :
 					the_post();
@@ -60,6 +60,7 @@ get_header();
 				$('#GlossaryTable').DataTable({
 			        paging: false,	
 			        info: false,
+        			order: [[0, 'asc']],
 			        "language": {
 					    "search": "Filter",
 					}

@@ -36,7 +36,7 @@ get_header();
 			if ( have_posts() ) :
 
 				echo '<table class="glossary" id="GlossaryTable">
-				<thead><tr><th>Title</th><th>Category</th><th>Definition</th><th>Author</th></tr></thead>
+				<thead><tr><th>Title</th><th>Category</th><th>Definition</th></tr></thead>
 				<tbody>';
 
 				while ( have_posts() ) :
@@ -70,16 +70,16 @@ get_header();
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript"  src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
 	<script type="text/javascript">
-		$(document).ready( function () 
-			{
+		$(document).ready( function () {
 				$('#GlossaryTable').DataTable({
 			        paging: false,	
 			        info: false,
-			        "language": {
+        			order: [[0, 'asc']],
+					"language": {
 					    "search": "Filter",
 					}
 				})
-			} );
+			});
 	</script>
 
     </div><!-- .entry-content -->
