@@ -61,7 +61,11 @@ get_header();
 							
 						echo '</td>'; 
 						
-						echo '<td>' . $content  . '</td>' . 
+						echo '<td>';
+						
+						the_content();
+
+						echo '</td>' . 
 								// '<td>'. $author . '</td>' . 
 							'</tr>';
 				endwhile;
