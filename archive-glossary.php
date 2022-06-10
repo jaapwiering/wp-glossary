@@ -51,17 +51,19 @@ get_header();
 								'<td><a href="' . $link .  '">' .  $title  . '</a></td>' .
 								'<td>';
 
-						// if (!empty($terms)) :
+						if (!empty($terms)) :
 							foreach ($terms as $term) {
 								echo '<a href="' . get_term_link($term) .  '">' .  $term->name  . '</a>' ;
 							}
-						// endif;
+						endif;
 
 						// var_dump($terms);
 							
-						echo '</td><td>';
-							get_the_content();
-						echo '</td></tr>';
+						echo '</td>' . 
+						
+						echo '<td>' . $content  . '</td>' . 
+								// '<td>'. $author . '</td>' . 
+							'</tr>';
 				endwhile;
 
 				// wp_reset_postdata();
