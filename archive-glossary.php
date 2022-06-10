@@ -48,7 +48,7 @@ get_header();
 						$terms = get_the_terms($post->ID, 'glossary-category');
 
 						echo '<tr>' . 
-								'<td><a href="' . $link .  '">' .  $title  . '</a></td>' .
+								'<td><a href="' . $link .  '">' .  $term  . '</a></td>' .
 								'<td>';
 
 						if (!empty($terms)) :
@@ -59,7 +59,7 @@ get_header();
 
 						// var_dump($terms);
 							
-						echo '</td>' . 
+						echo '</td>'; 
 						
 						echo '<td>' . $content  . '</td>' . 
 								// '<td>'. $author . '</td>' . 
