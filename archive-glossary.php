@@ -36,13 +36,13 @@ get_header();
 			if ( have_posts() ) :
 
 				echo '<table class="glossary" id="GlossaryTable">
-				<thead><tr><th>Title</th><th>Category</th><th>Definition</th></tr></thead>
+				<thead><tr><th>Term</th><th>Category</th><th>Definition</th></tr></thead>
 				<tbody>';
 
 				while ( have_posts() ) :
 					the_post();
 						$link = get_permalink();
-						$title = get_the_title();
+						$term = get_the_title();
 						$content = get_the_content();
 						$author = get_the_author();
 						$terms = get_the_terms($post->ID, 'glossary-category');
@@ -51,14 +51,17 @@ get_header();
 								'<td><a href="' . $link .  '">' .  $title  . '</a></td>' .
 								'<td>';
 
-						foreach ($terms as $term) {
-							echo '<a href="' . get_term_link($term) .  '">' .  $term->name  . '</a>' ;
-						}
-								
-						echo '</td>' . 
-								'<td>'. $content  . '</td>' . 
-								// '<td>'. $author . '</td>' . 
-							'</tr>';
+						if (!empty($terms)) :
+							foreach ($terms as $term) {
+								echo '<a href="' . get_term_link($term) .  '">' .  $term->name  . '</a>' ;
+							}
+						endif;
+
+						// var_dump($terms);
+							
+						echo '</td><td>';
+						get_the_content();
+						echo '</td></tr>';
 				endwhile;
 
 				// wp_reset_postdata();
