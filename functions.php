@@ -61,6 +61,19 @@ function fngl_cpt_glossary()
 add_action('init', 'fngl_cpt_glossary');
 
 
+/* Show unlimited entries on glossary archives */
+
+function fngl_get_all_glossary_posts( $query ) {
+	if( !is_admin() && $query->is_main_query() && is_post_type_archive( 'glossary' ) ) {
+		$query->set( 'posts_per_page', '-1' );
+//		$query->set( 'orderby', 'title' ); // doesn't work due to multilingual titles
+//		$query->set( 'order', 'ASC' );
+	}
+}
+add_action( 'pre_get_posts', 'fngl_get_all_glossary_posts' );
+
+
+
 /* Register a 'glossary-category' taxonomy for post type 'glossary'. */
 
 function fngl_cpt_glossary_cat() {
