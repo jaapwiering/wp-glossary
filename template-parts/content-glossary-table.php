@@ -25,9 +25,12 @@
                         '<td><a href="' . $link .  '">' .  $title  . '</a></td>' .
                         '<td>';
 
-                foreach ($terms as $term) {
-                    echo '<a href="' . get_term_link($term) .  '">' .  $term->name  . '</a>' ;
-                }
+
+                    	if (!empty($terms)) :
+							foreach ($terms as $term) {
+								echo '<a href="' . get_term_link($term) .  '">' .  $term->name  . '</a>' ;
+							}
+						endif;
 
                 echo '</td>' . 
                         '<td>'. $content  . '</td>' . 
