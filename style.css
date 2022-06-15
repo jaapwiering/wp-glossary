@@ -7,4 +7,4 @@
  Template:     fngl-s-core
  Version:      0.1
  Text Domain:  wp-glossary
-*/table#GlossaryTable tbody tr{background-color:#bbb}table#GlossaryTable tbody tr.odd{background-color:#ddd}.category main,.tag main,.archive main{padding-bottom:1rem}p{color:#333333}
+*/table#GlossaryTable tbody tr{background-color:#bbb}table#GlossaryTable tbody tr.odd{background-color:#ddd}.category main,.tag main,.archive main{padding-bottom:2rem}p{color:#333333}
