@@ -1,11 +1,3 @@
-:root {
-    --blue-500: hsl(212, 90%, 70%);
-    --blue-600: hsl(212, 90%, 80%);
-    --blue-700: hsl(212, 90%, 89%);
-    --blue-800: hsl(213, 62%, 94%);
-    --blue-900: hsl(213, 62%, 97%);
-}
-
 #GlossaryTable_wrapper {
     border: 1px var(--blue-700) solid;
     border-radius: 6px;
@@ -26,9 +18,21 @@
     margin-bottom: 1px;
     th {
         border-bottom: transparent;
+        padding: 8px 10px;
+        font-weight: var(--fw-sub);
     }
     thead {
         text-align: left;
+        .sorting {
+            background-size: 12px;
+            background-image: var(--sort_both);
+        }
+        .sorting_asc {
+            background-image: var(--sort_asc) !important;
+        }
+        .sorting_desc {
+            background-image: var(--sort_desc) !important;
+        }
     }
     tr {
         vertical-align: top;
@@ -60,13 +64,24 @@
 }
 
 .glossary-term-name {
+    font-family: var(--ff-sans);
+    font-size: var(--fs-m);
+    font-weight: var(--fw-sub);
 }
 
 .glossary-term-category {
+    font-family: var(--ff-sans);
+    font-size: var(--fs-smallcaps);
+    font-weight: var(--fw-sub);
+    text-transform: uppercase;
 }
 
 .glossary-term-definition {
+    font-family: var(--ff-serif);
+    font-size: var(--fs-paragraph);
 }
+
+/* glossary table terms menu */
 
 .glossary-terms-menu {
     display: flex;
@@ -74,32 +89,22 @@
     padding: 0;
     li {
         list-style: none;
-        border: 1px #00f solid;
+        border: 1px var(--blue-600) solid;
         border-radius: 4px;
         margin: 0 0.5rem 0 0;
         padding: 0 0.3rem;
         a {
             text-decoration: none;
+            font-family: var(--ff-sans);
+            font-size: var(--fs-smallcaps);
+            font-weight: var(--fw-sub);
+            text-transform: uppercase;
         }
         &:hover {
-            background-color: aqua;
+            background-color: var(--blue-800);
         }
     }
     .home-link {
-    }
-}
-
-/* sorting illustrations */
-#GlossaryTable {
-    thead .sorting {
-        background-image: var(--sort_both);
-        width: 24px;
-        height: 24px;
-    }
-    thead .sorting_asc {
-        background-image: var(--sort_asc) !important;
-    }
-    thead .sorting_desc {
-        background-image: var(--sort_desc) !important;
+        border-width: 2px;
     }
 }
