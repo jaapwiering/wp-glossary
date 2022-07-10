@@ -22,7 +22,7 @@ get_header();
 				'hide_empty' => false,
 			]);
 
-			echo '<ul>';
+			echo '<ul class="glossary-terms-menu">';
 			foreach ($terms as $term){
 				echo '<li><a href="' . get_term_link($term) .  '">' .  $term->name  . '</a></li>';
 			}

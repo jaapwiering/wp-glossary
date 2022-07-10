@@ -8,6 +8,9 @@ function enqueue_parent_styles() {
    wp_enqueue_style( 'parent-style', get_template_directory_uri().'/style.css' );
 }
 
+/* Disable block editor */
+add_filter('use_block_editor_for_post', '__return_false', 10);
+
 
 /* Declaration of custom post type "glossary" */
 

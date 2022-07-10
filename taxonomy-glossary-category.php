@@ -33,8 +33,8 @@ get_header();
 				'hide_empty' => false,
 			]);
 
-			echo '<ul>';
-			echo '<li><a href="' . $link . '/glossary">To all glossary terms</a></li>';
+			echo '<ul class="glossary-terms-menu">';
+			echo '<li class="home-link"><a href="' . $link . '/glossary">all categories</a></li>';
 			foreach ($terms as $term){
 				echo '<li><a href="' . get_term_link($term) .  '">' .  $term->name  . '</a></li>';
 			}
