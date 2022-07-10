@@ -1,0 +1,46 @@
+#GlossaryTable_wrapper {
+    border: 1px hsl(212, 62%, 63%) solid;
+    border-radius: 4px;
+    background-color: hsl(212, 90%, 89%);
+}
+
+#GlossaryTable {
+    thead {
+        text-align: left;
+    }
+    tr {
+        vertical-align: top;
+        &.even {
+            background-color: hsl(213, 62%, 95%);
+        }
+    }
+    a {
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.glossary-head-name {
+    width: 15%;
+}
+
+.glossary-head-category {
+    width: 15%;
+}
+
+.glossary-head-definition {
+    width: 70%;
+}
+
+/*
+.glossary-term-name {
+}
+
+.glossary-term-category {
+}
+
+.glossary-term-definition {
+}
+*/

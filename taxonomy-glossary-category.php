@@ -9,14 +9,36 @@ get_header();
 
         <header class="page-header">
 			<!-- pre>taxonomy-glossary-category.php</pre -->
-			<h1>Glossary</h1>
-        </header>
+		
+			<h1>Glossary category: 
+				<?php 
+					$terms = get_the_terms($post->ID, 'glossary-category');	
+
+					foreach ($terms as $term){
+						echo '<span>' . $term->name . '</span>';
+					}
+				?>
+			</h1>
+
+		</header>
 
 		<?php
 
-			// link back to all terms
+			// display a list with all categories = custom taxonomy 'glossary-category'
+
 			$link = get_site_url();
-			echo '<a href="' . $link . '/glossary">To all glossary terms</a>';
+
+			$terms = get_terms([
+				'taxonomy' => 'glossary-category',
+				'hide_empty' => false,
+			]);
+
+			echo '<ul>';
+			echo '<li><a href="' . $link . '/glossary">To all glossary terms</a></li>';
+			foreach ($terms as $term){
+				echo '<li><a href="' . get_term_link($term) .  '">' .  $term->name  . '</a></li>';
+			}
+			echo '</ul>';
 
 			// table with all lemmas
 			get_template_part( 'template-parts/content', 'glossary-table' );

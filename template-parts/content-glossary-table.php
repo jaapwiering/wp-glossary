@@ -10,7 +10,13 @@
 
     if ( have_posts() ) :
 
-        echo '<table class="glossary" id="GlossaryTable"><thead><tr><th>Term</th><th>Category</th><th>Definition</th></tr></thead><tbody>';
+        echo '<table class="glossary" id="GlossaryTable">
+                    <thead><tr>
+                        <th class="glossary-head-name">Term</th>
+                        <th class="glossary-head-category">Category</th>
+                        <th class="glossary-head-definition">Definition</th>
+                    </tr></thead>
+                <tbody>';
 
         while ( have_posts() ) :
             the_post();
@@ -18,12 +24,12 @@
                 $link = get_permalink();
                 $title = get_the_title();
                 $content = get_the_content();
-                $author = get_the_author();
+                // $author = get_the_author();
                 $terms = get_the_terms($post->ID, 'glossary-category');
 
                 echo '<tr>' . 
-                        '<td><a href="' . $link .  '">' .  $title  . '</a></td>' .
-                        '<td>';
+                        '<td class="glossary-term-name"><a href="' . $link .  '">' .  $title  . '</a></td>' .
+                        '<td class="glossary-term-category">';
 
 
                     	if (!empty($terms)) :
@@ -33,7 +39,7 @@
 						endif;
 
                 echo '</td>' . 
-                        '<td>'. $content  . '</td>' . 
+                        '<td class="glossary-term-definition">'. $content  . '</td>' . 
                         // '<td>'. $author . '</td>' . 
                     '</tr>';
         endwhile;
