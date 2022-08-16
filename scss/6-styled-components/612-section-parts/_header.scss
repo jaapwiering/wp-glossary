@@ -1,0 +1,23 @@
+#masthead {
+    margin: 1rem 0;
+}
+
+h1.site-title,
+p.site-title {
+    font-size: var(--fs-article-head);
+    font-weight: var(--fw-sub);
+    line-height: var(--lh-paragraph);
+    font-style: italic;
+    a,
+    a:visited {
+        text-decoration: none;
+        color: var(--blue-300);
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+}
+
+.site-description {
+    color: var(--blue-300);
+}

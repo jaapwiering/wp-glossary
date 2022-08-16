@@ -1,5 +1,8 @@
-.category main,
-.tag main,
-.archive main {
-    padding-bottom: 2rem;
+.page,
+.category,
+.tag,
+.archive {
+    main {
+        padding: 1rem 0 2rem 0;
+    }
 }

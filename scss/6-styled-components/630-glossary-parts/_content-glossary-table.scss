@@ -2,7 +2,7 @@
     border: 1px var(--blue-700) solid;
     border-radius: 6px;
     background-color: var(--blue-700);
-    padding-bottom: 0.5rem;
+    padding-bottom: 1rem;
 }
 
 #GlossaryTable_filter {
@@ -86,12 +86,12 @@
 .glossary-terms-menu {
     display: flex;
     flex-flow: row wrap;
+    gap: 0.5rem;
     padding: 0;
     li {
         list-style: none;
         border: 1px var(--blue-600) solid;
         border-radius: 4px;
-        margin: 0 0.5rem 0 0;
         padding: 0 0.3rem;
         a {
             text-decoration: none;
@@ -105,6 +105,15 @@
         }
     }
     .home-link {
-        border-width: 2px;
+        background: var(--blue-600);
+        a {
+            color: white;
+        }
+        &:hover {
+            background-color: var(--blue-600);
+            a {
+                color: var(--a-color);
+            }
+        }
     }
 }

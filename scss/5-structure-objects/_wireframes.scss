@@ -1,0 +1,17 @@
+:root {
+    /* header */
+    --header-full-bg: var(--white);
+    --header-area-bg: var(--white);
+    /* menu */
+    --nav-full-bg: var(--blue-500);
+    --nav-area-bg: var(--blue-500);
+    /* main content */
+    --main-full-bg: var(--white);
+    --main-area-bg: var(--white);
+    /* sidebar */
+    --sidebar-full-bg: var(--fngl-gradient);
+    --sidebar-area-bg: transparent;
+    /* footer */
+    --footer-full-bg: var(--blue-500);
+    --footer-area-bg: var(--blue-500);
+}
