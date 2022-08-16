@@ -10,6 +10,9 @@
     input {
         background-color: var(--blue-900);
         border-color: var(--blue-600);
+        &:focus {
+            background-color: var(--white);
+        }
     }
 }
 
@@ -67,6 +70,10 @@
     font-family: var(--ff-sans);
     font-size: var(--fs-m);
     font-weight: var(--fw-sub);
+    a {
+        display: block;
+        margin-top: -2px;
+    }
 }
 
 .glossary-term-category {
@@ -74,6 +81,11 @@
     font-size: var(--fs-smallcaps);
     font-weight: var(--fw-sub);
     text-transform: uppercase;
+    line-height: var(--lh-xs);
+    a {
+        display: block;
+        margin-top: 4px;
+    }
 }
 
 .glossary-term-definition {
