@@ -11,6 +11,10 @@ function enqueue_parent_styles() {
 /* Disable block editor */
 add_filter('use_block_editor_for_post', '__return_false', 10);
 
+/* Disables the block editor from managing widgets */
+add_filter( 'use_widgets_block_editor', '__return_false' );
+
+
 
 /* Declaration of custom post type "glossary" */
 
