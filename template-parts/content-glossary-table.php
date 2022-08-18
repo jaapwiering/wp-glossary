@@ -14,8 +14,13 @@
                     <thead><tr>
                         <th class="glossary-head-name">Term</th>
                         <th class="glossary-head-category">Category</th>
-                        <th class="glossary-head-definition">Definition</th>
-                    </tr></thead>
+                        <th class="glossary-head-definition">Definition</th>';
+
+        if (is_user_logged_in( )) {
+            echo '      <th class="glossary-head-edit-link"></th>';
+        }
+
+        echo '      </tr></thead>
                 <tbody>';
 
         while ( have_posts() ) :
@@ -38,14 +43,15 @@
 							}
 						endif;
 
-                echo '</td>' . 
-                        '<td class="glossary-term-definition">'. $content  . '</td>';  
-                        // . '<td>'. $author . '</td>' . 
+                echo '</td>';
+                echo '<td class="glossary-term-definition">'. $content  . '</td>';
+                // echo '<td>'. $author . '</td>'; 
+
 
                 if (is_user_logged_in( )) {
                     edit_post_link( __( 'edit', 'textdomain' ), '<td>', '</td>' );
                 }
-                
+
                 echo '</tr>';
         endwhile;
 
