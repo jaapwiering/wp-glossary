@@ -8,12 +8,13 @@ function enqueue_parent_styles() {
    wp_enqueue_style( 'parent-style', get_template_directory_uri().'/style.css' );
 }
 
+
 /* Disable block editor */
 add_filter('use_block_editor_for_post', '__return_false', 10);
 
+
 /* Disables the block editor from managing widgets */
 add_filter( 'use_widgets_block_editor', '__return_false' );
-
 
 
 /* Declaration of custom post type "glossary" */
@@ -124,4 +125,10 @@ function custom_glossary_column( $column, $post_id ) {
         //     break;
 
     }
+}
+
+/* Last updated function */
+function fngl_last_update(){
+	$updated_date = get_the_modified_time('Y-m-d');
+	echo '<span>last update </span>' . $updated_date; 
 }

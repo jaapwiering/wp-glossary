@@ -100,32 +100,4 @@
     flex-flow: row wrap;
     gap: 0.5rem;
     padding: 0;
-    li {
-        list-style: none;
-        border: 1px var(--blue-600) solid;
-        border-radius: 4px;
-        padding: 0 0.3rem;
-        a {
-            text-decoration: none;
-            font-family: var(--ff-sans);
-            font-size: var(--fs-smallcaps);
-            font-weight: var(--fw-sub);
-            text-transform: uppercase;
-        }
-        &:hover {
-            background-color: var(--blue-800);
-        }
-    }
-    .home-link {
-        background: var(--blue-600);
-        a {
-            color: white;
-        }
-        &:hover {
-            background-color: var(--blue-600);
-            a {
-                color: var(--a-color);
-            }
-        }
-    }
 }

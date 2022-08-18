@@ -34,9 +34,9 @@ get_header();
 			]);
 
 			echo '<ul class="glossary-terms-menu">';
-			echo '<li class="home-link"><a href="' . $link . '/glossary">all categories</a></li>';
+			echo '<li class="home-link glossary-term-button"><a href="' . $link . '/glossary">all categories</a></li>';
 			foreach ($terms as $term){
-				echo '<li><a href="' . get_term_link($term) .  '">' .  $term->name  . '</a></li>';
+				echo '<li class="glossary-term-button"><a href="' . get_term_link($term) .  '">' .  $term->name  . '</a></li>';
 			}
 			echo '</ul>';
 

@@ -24,7 +24,7 @@ get_header();
 
 			echo '<ul class="glossary-terms-menu">';
 			foreach ($terms as $term){
-				echo '<li><a href="' . get_term_link($term) .  '">' .  $term->name  . '</a></li>';
+				echo '<li class="glossary-term-button"><a href="' . get_term_link($term) .  '">' .  $term->name  . '</a></li>';
 			}
 			echo '</ul>';
 

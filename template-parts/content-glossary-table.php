@@ -39,9 +39,14 @@
 						endif;
 
                 echo '</td>' . 
-                        '<td class="glossary-term-definition">'. $content  . '</td>' . 
-                        // '<td>'. $author . '</td>' . 
-                    '</tr>';
+                        '<td class="glossary-term-definition">'. $content  . '</td>';  
+                        // . '<td>'. $author . '</td>' . 
+
+                if (is_user_logged_in( )) {
+                    edit_post_link( __( 'edit', 'textdomain' ), '<td>', '</td>' );
+                }
+                
+                echo '</tr>';
         endwhile;
 
         // wp_reset_postdata();
