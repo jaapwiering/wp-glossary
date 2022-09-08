@@ -11,6 +11,8 @@
 	<header class="article-header">
 		<?php
 
+		if (has_term()) :
+
 			$terms = get_the_terms($post->ID, 'glossary-category');	
 
 			echo '<ul class="glossary-item-term">';
@@ -18,8 +20,9 @@
 				echo '<li class="glossary-term-button"><a href="' . get_term_link($term) .  '">' .  $term->name  . '</a></li>';
 			}
 			echo '</ul>';
+		endif;
 
-        if (is_singular()) :
+		if (is_singular()) :
 			the_title('<h1 class="article-title">', '</h1>');
 		else :
 			the_title('<h2 class="article-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
