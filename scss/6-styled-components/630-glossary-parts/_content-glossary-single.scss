@@ -12,6 +12,8 @@
 
 .single-glossary .article-content {
     h2 {
+        font-size: var(--fs-m);
+        text-transform: uppercase;
         color: var(--blue-200);
         margin: 0 auto;
     }
