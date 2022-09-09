@@ -11,10 +11,8 @@
 	<header class="article-header">
 		<?php
 
-		if (has_term()) :
-
+		if (has_term('','glossary-category','')) :
 			$terms = get_the_terms($post->ID, 'glossary-category');	
-
 			echo '<ul class="glossary-item-term">';
 			foreach ($terms as $term){
 				echo '<li class="glossary-term-button"><a href="' . get_term_link($term) .  '">' .  $term->name  . '</a></li>';

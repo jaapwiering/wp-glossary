@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying page the (complete or partial) glossary table
+ * Template part for displaying a glossary category
  * @package wp-glossary
  */
 
@@ -8,23 +8,40 @@
 
 <?php
 
-    if ( have_posts() ) :
+		$post_title = get_the_title();
+		$post_slug = $post->post_name;		
 
-        echo '<table class="glossary" id="GlossaryTable">
-                    <thead><tr>
-                        <th class="glossary-head-name">Term</th>
-                        <th class="glossary-head-category">Category</th>
-                        <th class="glossary-head-definition">Definition</th>';
+		$args = array(
+			'post_type' => 'glossary',
+			'tax_query' => array(
+				array(
+					'taxonomy' => 'glossary-category',
+					'field'    => 'slug',
+					'terms'    => $post_slug,
+				),
+			),
+		);
 
-        if (is_user_logged_in( )) {
-            echo '      <th class="glossary-head-edit-link"></th>';
-        }
+		$the_query = new WP_Query($args);
+		
+		if ( $the_query->have_posts() ) {
 
-        echo '      </tr></thead>
-                <tbody>';
+			echo '<table class="glossary" id="GlossaryTable">
+						<thead><tr>
+							<th class="glossary-head-name">Term</th>
+							<th class="glossary-head-category">Category</th>
+							<th class="glossary-head-definition">Definition</th>';
 
-        while ( have_posts() ) :
-            the_post();
+			if (is_user_logged_in( )) {
+				echo '      <th class="glossary-head-edit-link"></th>';
+			}
+
+			echo '      </tr></thead>
+					<tbody>';
+
+			while ( $the_query->have_posts() ) :
+				$the_query->the_post();
+				// echo '<li>' . get_the_title() . '</li>';
 
                 $link = get_permalink();
                 $title = get_the_title();
@@ -45,21 +62,26 @@
 
                 echo '</td>';
                 echo '<td class="glossary-term-definition">'. $content  . '</td>';
-                // echo '<td>'. $author . '</td>'; 
 
 
-                if (is_user_logged_in( )) {
-                    edit_post_link( __( 'edit', 'textdomain' ), '<td>', '</td>' );
-                }
+				if (is_user_logged_in( )) {
+					edit_post_link( __( 'edit', 'textdomain' ), '<td>', '</td>' );
+				}
 
-                echo '</tr>';
-        endwhile;
+            echo '</tr>';
 
-        wp_reset_postdata();
+			endwhile;
 
         echo '</tbody></table>';
-    endif; 
-?>
+
+		} else {
+			echo 'no posts found';
+		}
+
+		wp_reset_postdata();
+
+	?>
+
 
 <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

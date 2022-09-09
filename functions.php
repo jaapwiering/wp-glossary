@@ -59,7 +59,7 @@ function fngl_cpt_glossary()
 		'public'              => true,
 		'capability_type'     => 'page',
 		// 'show_in_rest'        => true,
-		'taxonomies'          => array('glossary-category'),
+		'taxonomies'          => array('glossary-category','post_tag'),
 		'hierarchical'        => true,
     'has_archive'         => true,
 	);
