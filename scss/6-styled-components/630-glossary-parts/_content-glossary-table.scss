@@ -97,6 +97,9 @@
 .glossary-term-definition {
     font-family: var(--ff-serif);
     font-size: var(--fs-paragraph);
+    blockquote {
+        margin-left: 0;
+    }
 }
 
 /* glossary table terms menu */

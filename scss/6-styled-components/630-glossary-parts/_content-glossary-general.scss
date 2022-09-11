@@ -1,0 +1,18 @@
+.glossary-term-definition,
+.single-glossary .article-content 
+    h2 {
+        font-size: var(--fs-m);
+        text-transform: uppercase;
+        color: var(--blue-200);
+        margin: 0 auto;
+    }
+    h3 {
+        font-size: var(--fs-m);
+        font-weight: var(--fw-sub);
+        color: var(--blue-200);
+        margin: 0 auto;
+    }
+    blockquote {
+        font-family: var(--ff-sans);
+    }
+}
