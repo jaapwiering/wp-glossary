@@ -11,7 +11,8 @@
 		$post_slug = $post->post_name;		
 
 		$args = array(
-			'post_type' => 'glossary',
+			// 'post_type' => 'glossary',
+			'posts_per_page' => -1,
 			'tax_query' => array(
 				array(
 					'taxonomy' => 'glossary-category',

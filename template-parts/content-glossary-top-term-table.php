@@ -10,6 +10,7 @@
 
 		$args = array(
 			'post_type' => 'glossary',
+			'posts_per_page' => -1,
 			'tax_query' => array(
 				array(
 					'taxonomy' => 'post_tag',
