@@ -1,0 +1,21 @@
+blockquote {
+    border: 1px solid var(--blue-700);
+    border-left: 4px solid var(--blue-300);
+    background-color: var(--blue-800);
+    margin: 0 auto 2rem;
+    max-width: var(--max-width-text);
+    font-style: italic;
+    padding: 1rem;
+    p {
+        font-size: var(--fs-m);
+    }
+    p:last-of-type {
+        margin-bottom: initial;
+    }
+    cite {
+        font-style: normal;
+        font-size: var(--fs-s);
+        line-height: var(--lh-s);
+        display: block;
+    }
+}
