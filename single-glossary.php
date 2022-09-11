@@ -16,7 +16,6 @@ get_header();
 			get_template_part( 'template-parts/content', 'glossary-single' );
 		endwhile; 
 
-
 		// conditional if glossary category triggers second loop
 	
 		if( has_term( 'glossary-category', 'glossary-category' ) ) {

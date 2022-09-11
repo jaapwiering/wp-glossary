@@ -8,7 +8,6 @@
 
 <?php
 
-		$post_title = get_the_title();
 		$post_slug = $post->post_name;		
 
 		$args = array(

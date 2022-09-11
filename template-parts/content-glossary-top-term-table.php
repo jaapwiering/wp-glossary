@@ -1,43 +1,20 @@
 <?php
 /**
- * The template for displaying single posts from CPT glossary
+ * Template part for displaying top terms
+ * @package wp-glossary
  */
 
-get_header();
 ?>
 
-<div class="main-full-bg"></div>
-<main id="main primary" class="main-area">
-
-	<?php
-		// first loop for single information
-		while ( have_posts() ) :
-			the_post();
-			get_template_part( 'template-parts/content', 'glossary-single' );
-		endwhile; 
-
-		// if ( comments_open() || get_comments_number() ) :
-		// 	comments_template();
-		// endif;
-
-		// conditional if glossary category equals 'glossary-category'
-	
-		if( has_term( 'glossary-category', 'glossary-category' ) ) {
-			echo 'ik ben een "glossary-category" ';
-		}
-
-		// second loop showing list of term in that category
-
-		$post_title = get_the_title();
-		$post_slug = $post->post_name;		
+<?php
 
 		$args = array(
 			'post_type' => 'glossary',
 			'tax_query' => array(
 				array(
-					'taxonomy' => 'glossary-category',
+					'taxonomy' => 'post_tag',
 					'field'    => 'slug',
-					'terms'    => $post_slug,
+					'terms'    => 'top-term',
 				),
 			),
 		);
@@ -59,13 +36,8 @@ get_header();
 			echo '      </tr></thead>
 					<tbody>';
 
-
-
-
-
 			while ( $the_query->have_posts() ) :
 				$the_query->the_post();
-				// echo '<li>' . get_the_title() . '</li>';
 
                 $link = get_permalink();
                 $title = get_the_title();
@@ -123,9 +95,3 @@ get_header();
             })
         } );
 </script>
-
-</main>
-
-<?php
-get_sidebar();
-get_footer();
