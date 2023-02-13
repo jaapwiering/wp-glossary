@@ -76,10 +76,11 @@
     font-family: var(--ff-sans);
     font-size: var(--fs-m);
     font-weight: var(--fw-sub);
-    line-height: var(--lh-xs);
+    line-height: var(--lh-s);
     a {
         display: block;
-        margin-top: 4px;
+        margin-top: 2px;
+        margin-bottom: 4px;
     }
 }
 
