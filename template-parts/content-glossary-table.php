@@ -26,14 +26,15 @@
         while ( have_posts() ) :
             the_post();
 
-                $link = get_permalink();
-                $title = get_the_title();
-                $content = get_the_content();
                 // $author = get_the_author();
+                $content = get_the_content();
+                $link = get_permalink();
+                $slug = $post->post_name;
                 $terms = get_the_terms($post->ID, 'glossary-category');
+                $title = get_the_title();
 
                 echo '<tr>' . 
-                        '<td class="glossary-term-name"><a href="' . $link .  '">' .  $title  . '</a></td>' .
+                        '<td class="glossary-term-name"><a href="' . $link .  '" id="' . $slug . '">' .  $title  . '</a></td>' .
                         '<td class="glossary-term-category">';
 
 

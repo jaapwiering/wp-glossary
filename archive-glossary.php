@@ -22,6 +22,7 @@ get_header();
 				'hide_empty' => false,
 			]);
 
+			// terms navigation
 			echo '<ul class="glossary-terms-menu">';
 			foreach ($terms as $term){
 				echo '<li class="glossary-term-button"><a href="' . get_term_link($term) .  '">' .  $term->name  . '</a></li>';
@@ -29,7 +30,6 @@ get_header();
 			echo '</ul>';
 
 			// table with all lemmas
-
 			get_template_part( 'template-parts/content', 'glossary-table' );
 
 		?>
