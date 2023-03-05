@@ -2,3 +2,24 @@
     --comments-area-bg: var(--blue-900);
     --comments-form-area-bg: var(--blue-900);
 }
+
+.comments-form-area {
+    max-width: var(--max-width-text);
+    margin: 0 auto;
+    border: 1px solid var(--blue-800);
+    border-radius: 3px;
+}
+
+.comment-reply-title {
+    font-size: var(--fs-m);
+    font-weight: var(--fw-sub);
+    color: var(--blue-200);
+}
+
+.comment-form {
+    font-size: var(--fs-smallcaps);
+    .logged-in-as {
+    }
+    .comment-form-comment {
+    }
+}
