@@ -85,24 +85,32 @@
 }
 
 .glossary-term-category {
-    font-family: var(--ff-sans);
-    font-size: var(--fs-smallcaps);
-    font-weight: var(--fw-sub);
-    text-transform: uppercase;
-    line-height: var(--lh-xxs);
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    // justify-content: flex-start;
-    gap: 0.5rem;
-    a {
-        border: 1px var(--blue-600) solid;
-        border-radius: 4px;
-        padding: 0.4rem 0.3rem;
-        margin-top: 1px;
-        text-decoration: none !important;
-        &:hover {
-            background-color: var(--blue-800);
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 0.5rem;
+        li {
+            flex: 0;
+            border: 1px var(--blue-600) solid;
+            border-radius: 4px;
+            padding: 0.4rem 0.3rem;
+            margin-top: 1px;
+            font-family: var(--ff-sans);
+            font-size: var(--fs-smallcaps);
+            font-weight: var(--fw-sub);
+            text-transform: uppercase;
+            line-height: var(--lh-xxs) !important;
+            a {
+                text-decoration: none !important;
+                &:hover {
+                    background-color: var(--blue-800);
+                }
+            }
         }
     }
 }
