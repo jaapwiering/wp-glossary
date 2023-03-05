@@ -53,11 +53,12 @@
                         '<td class="glossary-term-name"><a href="' . $link .  '">' .  $title  . '</a></td>' .
                         '<td class="glossary-term-category">';
 
-
                     	if (!empty($terms)) :
+                            echo '<ul>';
 							foreach ($terms as $term) {
-								echo '<a href="' . get_term_link($term) .  '">' .  $term->name  . '</a>' ;
+								echo '<li><a href="' . get_term_link($term) .  '">' .  $term->name  . '</a></li>' ;
 							}
+                            echo '</ul>';
 						endif;
 
                 echo '</td>';

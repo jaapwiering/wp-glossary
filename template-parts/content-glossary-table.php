@@ -37,7 +37,6 @@
                         '<td class="glossary-term-name"><a href="' . $link .  '" id="' . $slug . '">' .  $title  . '</a></td>' .
                         '<td class="glossary-term-category">';
 
-
                     	if (!empty($terms)) :
                             echo '<ul>';
 							foreach ($terms as $term) {
