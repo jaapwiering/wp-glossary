@@ -1,7 +1,9 @@
-.glossary-item-term {
+.glossary-item-terms {
     max-width: var(--max-width-text);
     margin: 1rem auto 1rem auto;
     padding: 0;
+    display: flex;
+    gap: 0.5rem;
 }
 
 .update {

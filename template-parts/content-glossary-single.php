@@ -13,7 +13,7 @@
 
 		if (has_term('','glossary-category','')) :
 			$terms = get_the_terms($post->ID, 'glossary-category');	
-			echo '<ul class="glossary-item-term">';
+			echo '<ul class="glossary-item-terms">';
 			foreach ($terms as $term){
 				echo '<li class="glossary-term-button"><a href="' . get_term_link($term) .  '">' .  $term->name  . '</a></li>';
 			}
