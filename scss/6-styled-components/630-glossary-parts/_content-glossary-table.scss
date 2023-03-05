@@ -90,9 +90,20 @@
     font-weight: var(--fw-sub);
     text-transform: uppercase;
     line-height: var(--lh-xxs);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    // justify-content: flex-start;
+    gap: 0.5rem;
     a {
-        display: block;
-        margin-top: 8px;
+        border: 1px var(--blue-600) solid;
+        border-radius: 4px;
+        padding: 0.4rem 0.3rem;
+        margin-top: 1px;
+        text-decoration: none !important;
+        &:hover {
+            background-color: var(--blue-800);
+        }
     }
 }
 
