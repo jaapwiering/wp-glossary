@@ -11,3 +11,9 @@
     font-size: var(--fs-s);
     max-width: var(--max-width-text);
 }
+
+.single-glossary {
+    .article-content > p:first-child {
+        font-size: var(--fs-l);
+    }
+}

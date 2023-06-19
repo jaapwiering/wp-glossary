@@ -27,7 +27,7 @@
             the_post();
 
                 // $author = get_the_author();
-                $content = get_the_content();
+                $content = get_the_content('Details');
                 $link = get_permalink();
                 $slug = $post->post_name;
                 $terms = get_the_terms($post->ID, 'glossary-category');
@@ -47,6 +47,7 @@
 
                 echo '</td>';
                 echo '<td class="glossary-term-definition">'. $content  . '</td>';
+                // echo '<td class="glossary-term-definition">'. apply_filters( 'the_content', $content )  . '</td>'; // uitgebreide content
                 // echo '<td>'. $author . '</td>'; 
 
 
