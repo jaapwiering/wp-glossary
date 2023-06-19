@@ -15,5 +15,6 @@
 .single-glossary {
     .article-content > p:first-child {
         font-size: var(--fs-l);
+        line-height: var(--lh-large);
     }
 }
